@@ -1,7 +1,6 @@
 ## Python Microservice on Azure Kubernetes
 
-This is be a demo of how to set up a simple RESTful python 
-microservice and deploy it on Azure Kubernetes.
+This is a demo of how to set up a simple RESTful python microservice and deploy it on Azure Kubernetes.
 
 The blog entries describing this are at:
 
