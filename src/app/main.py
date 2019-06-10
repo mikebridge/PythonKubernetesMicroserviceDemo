@@ -35,14 +35,3 @@ def hello() -> str:
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
 
-
-# @app.route("/hello", methods=['POST'])
-# def hello() -> str:
-#     errors = validate_greeting(request)
-#     if errors is not None:
-#         print(errors)
-#         raise InvalidUsage(errors)
-#     greetee = request.json.get("greetee", None)
-#     response = {"message": say_hello_to(greetee)}
-#     return jsonify(response)
-#     # return make_response(jsonify(response), 200)
