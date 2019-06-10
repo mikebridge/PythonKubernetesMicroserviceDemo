@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  pythondemo:
+    # this is the "repository" name.
+    image: pythondemo
+    # custom container name (rather than the generated default)
+    container_name: pythondemo
+    restart: unless-stopped
+    build: src
+    environment:
+      FLASK_ENV: "development"
+    ports:
+      - "0.0.0.0:80:80"
+
+
