@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  pythondemo:
+  demo:
     # this is the "repository" name.
     image: pythondemo
     # custom container name (rather than the generated default)
