@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-python-flask-deployment
+spec:
+  selector:
+    matchLabels:
+      app: demo-python-flask
+  template:
+    metadata:
+      labels:
+        app: demo-python-flask
+    spec:
+      containers:
+        - name: demo-python-flask
+          image: mydemoregistry.azurecr.io/pythondemo:0.0.1
+          imagePullPolicy: Always
+          env:
+            - name: FLASK_ENV
+              value: "development"
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pythondemo-flask-service
+spec:
+  selector:
+    app: demo-python-flask
+  type: LoadBalancer
+  # uncomment this if you have preallocated a static IP address
+  # loadBalancerIP: a.b.c.d
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  loadBalancerSourceRanges:
+    # replace e.f.g.h with your public IP address: https://www.whatismyip.com
+    - e.f.g.h/32
